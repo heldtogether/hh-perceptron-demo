@@ -1,35 +1,34 @@
 package main
 
 import (
-	"fmt"
 	"flag"
+	"fmt"
+	"github.com/heldtogether/perceptron"
 	"math/rand"
 	"time"
-	"github.com/heldtogether/perceptron"
 )
 
-func main() {
+var (
+	rounds         int
+	generator      string
+	numberInputs   = 2
+	p              *perceptron.Perceptron
+	input          []int
+	expectedOutput int
+)
 
+func init() {
 	rand.Seed(time.Now().UTC().UnixNano())
 
-	var rounds int
 	flag.IntVar(&rounds, "rounds", 100, "Number of rounds of training to perform.")
-
-	var generator string
 	flag.StringVar(&generator, "generator", "and", "Type of training data generator.")
-
 	flag.Parse()
+}
 
-	numberInputs := 2
-
-	var p *perceptron.Perceptron
-	var input []int
-	var expectedOutput int
-
+func main() {
 	p = perceptron.New(numberInputs)
 
 	for i := 0; i < rounds; i++ {
-
 		switch generator {
 		case "and":
 			input, expectedOutput = generateAnd()
@@ -40,7 +39,6 @@ func main() {
 		default:
 			panic("Generator not allowed")
 		}
-
 		p.Train(input, expectedOutput)
 	}
 
@@ -57,7 +55,6 @@ func main() {
 
 	input = []int{1, 1}
 	fmt.Printf("Try Input: %v. Output: %d. \n", input, p.Activates(input))
-
 }
 
 func generateAnd() ([]int, int) {
@@ -65,12 +62,12 @@ func generateAnd() ([]int, int) {
 	i2 := rand.Intn(2)
 
 	b1 := false
-	if (i1 == 1) {
+	if i1 == 1 {
 		b1 = true
 	}
 
 	b2 := false
-	if (i2 == 1) {
+	if i2 == 1 {
 		b2 = true
 	}
 
@@ -87,12 +84,12 @@ func generateNand() ([]int, int) {
 	i2 := rand.Intn(2)
 
 	b1 := false
-	if (i1 == 1) {
+	if i1 == 1 {
 		b1 = true
 	}
 
 	b2 := false
-	if (i2 == 1) {
+	if i2 == 1 {
 		b2 = true
 	}
 
@@ -109,12 +106,12 @@ func generateOr() ([]int, int) {
 	i2 := rand.Intn(2)
 
 	b1 := false
-	if (i1 == 1) {
+	if i1 == 1 {
 		b1 = true
 	}
 
 	b2 := false
-	if (i2 == 1) {
+	if i2 == 1 {
 		b2 = true
 	}
 
