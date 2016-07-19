@@ -30,18 +30,7 @@ func main() {
 	p = perceptron.New(numberInputs)
 
 	fmt.Printf("Before training using the \"%s\" generator.\n", generator)
-
-	input = []int{0, 0}
-	fmt.Printf("Try Input: %v. Output: %d. \n", input, p.Activates(input))
-
-	input = []int{0, 1}
-	fmt.Printf("Try Input: %v. Output: %d. \n", input, p.Activates(input))
-
-	input = []int{1, 0}
-	fmt.Printf("Try Input: %v. Output: %d. \n", input, p.Activates(input))
-
-	input = []int{1, 1}
-	fmt.Printf("Try Input: %v. Output: %d. \n", input, p.Activates(input))
+	printResults(p)
 
 	for i := 0; i < rounds; i++ {
 		switch generator {
@@ -58,7 +47,10 @@ func main() {
 	}
 
 	fmt.Printf("After traineing with %d number of rounds using the \"%s\" generator.\n", rounds, generator)
+	printResults(p)
+}
 
+func printResults(p *perceptron.Perceptron) {
 	input = []int{0, 0}
 	fmt.Printf("Try Input: %v. Output: %d. \n", input, p.Activates(input))
 
