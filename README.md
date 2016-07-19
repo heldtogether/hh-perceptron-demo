@@ -12,7 +12,7 @@ In your GOPATH, run
 
 to download the app. Then run
 
-	cd $GOPATH/src/github.com/heldtogether/hh-neural-network-demo
+	cd $GOPATH/src/github.com/heldtogether/hh-perceptron-demo
 	go get -t ./...
 
 to download all dependencies.
