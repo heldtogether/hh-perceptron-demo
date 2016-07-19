@@ -46,7 +46,7 @@ func main() {
 		p.Train(input, expectedOutput)
 	}
 
-	fmt.Printf("After traineing with %d number of rounds using the \"%s\" generator.\n", rounds, generator)
+	fmt.Printf("After training with %d number of rounds using the \"%s\" generator.\n", rounds, generator)
 	printResults(p)
 }
 
