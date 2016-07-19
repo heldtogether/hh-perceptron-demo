@@ -3,9 +3,10 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/heldtogether/perceptron"
 	"math/rand"
 	"time"
+
+	"github.com/heldtogether/perceptron"
 )
 
 var (
