@@ -12,6 +12,7 @@ In your GOPATH, run
 
 to download the app. Then run
 
+	cd $GOPATH/src/github.com/heldtogether/hh-neural-network-demo
 	go get -t ./...
 
 to download all dependencies.
@@ -25,7 +26,7 @@ Finally, install the app with
 
 Run the app using
 
-    hh-perceptron-demo [-generator="{and|or|nand}"] [-rounds=100]
+	hh-perceptron-demo [-generator="{and|or|nand}"] [-rounds=100]
 
 Available flags:
 
